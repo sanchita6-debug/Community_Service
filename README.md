@@ -26,8 +26,7 @@ The platform is designed to be easy to use, accessible, and supportive for stude
 
 - Python
 - Node.js
-- HTML
-- CSS
+- React
 - JavaScript
 - Chatbot Framework
 - Database
