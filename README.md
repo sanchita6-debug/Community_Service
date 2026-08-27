@@ -70,13 +70,6 @@ This project can collaborate with:
 - Mental Health Awareness Organisations
 - Local NGOs
 
-## 👩‍💻 Author
-
-**Sanchita Saroj**
-
-B.Tech CSE – Artificial Intelligence and Machine Learning  
-K.R. Mangalam University
-
 ## 📄 Disclaimer
 
 This project is created for educational purposes. It is a non-diagnostic support tool and should not replace professional medical advice or counselling.
