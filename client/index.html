@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b5cab" />
+    <meta
+      name="description"
+      content="VoicePay helps you understand UPI messages and spot fraud, in your own language, by voice. It never moves money."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!--
+      Apply the saved theme BEFORE the first paint.
+
+      React applies the theme in an effect, which runs after the first frame.
+      Without this, a person who chose the dark screen would see a flash of
+      the white one every time the app opened - long enough to be jarring,
+      and on a bright screen at night long enough to hurt.
+
+      This is the only code in the app that reads localStorage outside the
+      React tree. It has to be here, inline and before the stylesheet is
+      even applied, or the flash is back.
+    -->
+    <script>
+      (function () {
+        try {
+          var raw = window.localStorage.getItem('voicepay:settings');
+          var saved = raw ? JSON.parse(raw) : null;
+          var theme = saved && saved.theme === 'dark' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b1220' : '#0b5cab');
+        } catch (err) {
+          // A corrupt value, or a browser that blocks localStorage, must
+          // never stop the app from starting. The light theme is the
+          // fallback, and it is what the CSS defaults to.
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+
+    <!--
+      Fonts are self-hosted-free: we lean on the system stack so the app works
+      offline and never waits on a font CDN. `display=swap` on Google Fonts
+      would block first paint on a slow connection.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>VoicePay - Easy UPI for Everyone</title>
+  </head>
+  <body>
+    <!--
+      Static first-paint shell. React replaces #root on mount, but if the JS
+      bundle fails to load (offline, cache miss) the user still sees a
+      meaningful message instead of a blank white screen.
+    -->
+    <div id="root">
+      <div class="boot">
+        <div class="boot__logo" aria-hidden="true">VoicePay</div>
+        <p class="boot__msg">Loading VoicePay…</p>
+        <noscript>
+          <p class="boot__msg">
+            VoicePay needs JavaScript to speak to you. Please enable JavaScript, or ask a
+            family member for help.
+          </p>
+        </noscript>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
