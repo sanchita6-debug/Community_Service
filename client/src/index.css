@@ -1,0 +1,500 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+@layer base {
+  :root {
+    --font-scale: 1;
+    --brand: #0b5cab;
+    --focus-ring: #1d4ed8;
+
+    /* ---------------------------------------------------------------------
+       The palette.
+       ---------------------------------------------------------------------
+       Every colour the app uses is a custom property here, and the Tailwind
+       config points its colour names at these (see client/tailwind.config.js).
+       The values are RGB channels without the wrapper - "11 92 171" - because
+       that is the form `rgb(var(--x) / <alpha-value>)` expects.
+
+       WHY VARIABLES AND NOT HEXES: the app has a light theme and a dark
+       theme, and the dark theme is this file and nothing else. Every screen
+       reads the palette through these properties, so flipping the theme
+       flips every screen at once - no `dark:` twin of every class, and no
+       screen that was missed and stayed light.
+
+       The dark values live in the `[data-theme='dark']` block at the end of
+       this section. Reading a screen in the dark theme and seeing pale text
+       on a dark card is the whole point of that block; there is no
+       per-screen dark CSS to drift out of sync.
+       */
+    --c-primary: 11 92 171;          /* #0b5cab */
+    --c-primary-50: 239 246 255;     /* #eff6ff */
+    --c-primary-100: 219 234 254;    /* #dbeafe */
+    --c-primary-200: 191 219 254;    /* #bfdbfe */
+    --c-primary-300: 147 197 253;    /* #93c5fd */
+    --c-primary-400: 96 165 250;     /* #60a5fa */
+    --c-primary-500: 59 130 246;     /* #3b82f6 */
+    --c-primary-600: 37 99 235;      /* #2563eb */
+    --c-primary-700: 29 78 216;      /* #1d4ed8 */
+    --c-primary-800: 30 64 175;      /* #1e40af */
+    --c-primary-900: 30 58 138;      /* #1e3a8a */
+    --c-primary-950: 23 37 84;       /* #172554 */
+
+    --c-calm-50: 240 253 248;        /* #f0fdf8 */
+    --c-calm-100: 204 251 233;       /* #ccfbe9 */
+    --c-calm-200: 153 246 212;       /* #99f6d4 */
+    --c-calm-300: 94 234 208;        /* #5eead0 */
+    --c-calm-400: 45 212 191;        /* #2dd4bf */
+    --c-calm-500: 20 184 166;        /* #14b8a6 */
+    --c-calm-600: 13 148 136;        /* #0d9488 */
+    --c-calm-700: 15 118 110;        /* #0f766e */
+    --c-calm-800: 17 94 89;          /* #115e59 */
+    --c-calm-900: 19 78 74;          /* #134e4a */
+
+    --c-danger-50: 254 242 242;      /* #fef2f2 */
+    --c-danger-100: 254 226 226;     /* #fee2e2 */
+    --c-danger-200: 254 202 202;     /* #fecaca */
+    --c-danger-300: 252 165 165;     /* #fca5a5 */
+    --c-danger-400: 248 113 113;     /* #f87171 */
+    --c-danger-500: 239 68 68;       /* #ef4444 */
+    --c-danger-600: 220 38 38;       /* #dc2626 */
+    --c-danger-700: 185 28 28;       /* #b91c1c */
+    --c-danger-800: 153 27 27;       /* #991b1b */
+    --c-danger-900: 127 29 29;       /* #7f1d1d */
+
+    --c-warn-50: 255 251 235;        /* #fffbeb */
+    --c-warn-100: 254 243 199;       /* #fef3c7 */
+    --c-warn-200: 253 230 138;       /* #fde68a */
+    --c-warn-300: 252 211 77;        /* #fcd34d */
+    --c-warn-400: 251 191 36;        /* #fbbf24 */
+    --c-warn-500: 245 158 11;        /* #f59e0b */
+    --c-warn-600: 217 119 6;         /* #d97706 */
+    --c-warn-700: 180 83 9;          /* #b45309 */
+    --c-warn-800: 146 64 14;         /* #92400e */
+    --c-warn-900: 120 53 15;         /* #78350f */
+
+    --c-ink: 15 23 42;               /* #0f172a */
+    --c-ink-soft: 51 65 85;          /* #334155 */
+    /* #5f6b7d, not the old #64748b: see the note in tailwind.config.js. */
+    --c-ink-muted: 95 107 125;       /* #5f6b7d */
+
+    --c-paper: 244 248 253;          /* #f4f8fd - the page */
+    --c-surface: 255 255 255;        /* #ffffff - cards and panels */
+
+    /* Shadows are variables too: a dark grey shadow on a dark card is
+       invisible, and the cards would lose the depth that lifts them off the
+       page. */
+    --shadow-card: 0 4px 16px -4px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+    --shadow-lift: 0 12px 32px -8px rgba(15, 23, 42, 0.18);
+    --shadow-focus: 0 0 0 4px rgba(37, 99, 235, 0.45);
+
+    /* ---------------------------------------------------------------------
+       shadcn/ui design tokens
+       ---------------------------------------------------------------------
+       The shadcn CLI writes components against these custom properties
+       (`bg-background`, `text-muted-foreground`, `border-input`, ...). They
+       are mapped onto VoicePay's OWN palette - the same colours as
+       `theme.extend.colors` in tailwind.config.js - so a shadcn primitive
+       added later lands in the same colour system as every other screen
+       instead of introducing a second one.
+
+       The values are HSL triplets (no `hsl()` wrapper) because that is the
+       form Tailwind's `hsl(var(--x))` expects. Changing a palette colour
+       means changing BOTH files; the comment above each value records the
+       hex it came from.
+       */
+    --background: 0 0% 100%;            /* #ffffff */
+    --foreground: 222 47% 11%;          /* #0f172a  ink */
+    --card: 0 0% 100%;                  /* #ffffff */
+    --card-foreground: 222 47% 11%;     /* #0f172a  ink */
+    --popover: 0 0% 100%;               /* #ffffff */
+    --popover-foreground: 222 47% 11%;  /* #0f172a  ink */
+    --primary: 210 88% 36%;             /* #0b5cab  primary-600 */
+    --primary-foreground: 0 0% 100%;    /* #ffffff */
+    --secondary: 214 95% 93%;           /* #dbeafe  primary-100 */
+    --secondary-foreground: 222 47% 11%;/* #0f172a  ink */
+    --muted: 214 100% 97%;              /* #eff6ff  primary-50 */
+    --muted-foreground: 216 14% 43%;    /* #5f6b7d  ink-muted */
+    --accent: 214 95% 93%;              /* #dbeafe  primary-100 */
+    --accent-foreground: 222 47% 11%;   /* #0f172a  ink */
+    --destructive: 0 72% 51%;           /* #dc2626  danger-600 */
+    --destructive-foreground: 0 0% 100%;/* #ffffff */
+    --border: 213 97% 87%;              /* #bfdbfe  primary-200 */
+    --input: 213 97% 87%;               /* #bfdbfe  primary-200 */
+    --ring: 224 76% 48%;                /* #1d4ed8  primary-700 */
+    --radius: 1.25rem;                  /* matches `rounded-card` */
+
+    /* Native controls (<select>, checkboxes, scrollbars) follow the OS
+       colour scheme. Without this an OS in dark mode renders a <select>
+       dark against our white `.field`, which then fails contrast even in
+       high-contrast mode. */
+    color-scheme: light;
+  }
+
+  /* -----------------------------------------------------------------------
+     The dark theme.
+     -----------------------------------------------------------------------
+     Same names, different values. Three rules decide what each step becomes:
+
+       1. The light end flips. 50 was a pale tint, so in the dark theme it
+          becomes a deep tint of the same hue - it is still "the background
+          shade of this colour", just on the other side of the page.
+       2. The dark end lifts. 800/900/950 were the steps used for TEXT on a
+          light surface, so in the dark theme they become the pale steps used
+          for text on a dark surface. This is why the app uses `text-primary-800`
+          and not `text-primary-700` for coloured text: 700 is a solid fill
+          colour (a button with white text on it) and stays dark in both
+          themes, while 800 is a text colour and lifts.
+       3. The middle barely moves. 500-700 are solid fills that carry white
+          text, so they keep their value; white on them has to keep passing
+          4.5:1 in the dark theme exactly as it does in the light one.
+
+     ink/soft/muted are the three steps of the text colour and they simply
+     invert: what was near-black becomes near-white, and the muted grey
+     becomes a light grey that still reads as quieter than the body text.
+     ----------------------------------------------------------------------- */
+  :root[data-theme='dark'] {
+    --brand: #60a5fa;
+    --focus-ring: #60a5fa;
+
+    --c-primary: 96 165 250;        /* #60a5fa */
+    --c-primary-50: 10 23 40;       /* #0a1728 */
+    --c-primary-100: 14 33 56;      /* #0e2138 */
+    --c-primary-200: 29 58 99;      /* #1d3a63 */
+    --c-primary-300: 42 82 144;     /* #2a5290 */
+    --c-primary-400: 59 111 184;    /* #3b6fb8 */
+    --c-primary-500: 59 130 246;    /* #3b82f6 */
+    --c-primary-600: 29 78 216;     /* #1d4ed8 */
+    --c-primary-700: 37 99 235;     /* #2563eb - the solid brand button */
+    --c-primary-800: 165 203 253;   /* #a5cbfd */
+    --c-primary-900: 201 224 254;   /* #c9e0fe */
+    --c-primary-950: 227 239 254;   /* #e3effe */
+
+    --c-calm-50: 5 46 43;           /* #052e2b */
+    --c-calm-100: 7 59 54;          /* #073b36 */
+    --c-calm-200: 10 74 67;         /* #0a4a43 */
+    --c-calm-300: 13 92 83;         /* #0d5c53 */
+    --c-calm-400: 13 148 136;       /* #0d9488 */
+    --c-calm-500: 20 184 166;       /* #14b8a6 */
+    --c-calm-600: 13 148 136;       /* #0d9488 */
+    --c-calm-700: 15 118 110;       /* #0f766e */
+    --c-calm-800: 94 234 212;       /* #5eead4 */
+    --c-calm-900: 153 246 212;      /* #99f6d4 */
+
+    --c-danger-50: 59 13 13;        /* #3b0d0d */
+    --c-danger-100: 74 17 17;       /* #4a1111 */
+    --c-danger-200: 95 22 22;       /* #5f1616 */
+    --c-danger-300: 127 29 29;      /* #7f1d1d */
+    --c-danger-400: 220 38 38;      /* #dc2626 */
+    --c-danger-500: 239 68 68;       /* #ef4444 */
+    --c-danger-600: 220 38 38;       /* #dc2626 */
+    --c-danger-700: 185 28 28;       /* #b91c1c */
+    --c-danger-800: 252 165 165;    /* #fca5a5 */
+    --c-danger-900: 254 202 202;    /* #fecaca */
+
+    --c-warn-50: 42 31 5;           /* #2a1f05 */
+    --c-warn-100: 55 41 10;         /* #37290a */
+    --c-warn-200: 74 54 14;         /* #4a360e */
+    --c-warn-300: 94 70 18;         /* #5e4612 */
+    --c-warn-400: 251 191 36;       /* #fbbf24 */
+    --c-warn-500: 245 158 11;       /* #f59e0b */
+    --c-warn-600: 217 119 6;        /* #d97706 */
+    --c-warn-700: 180 83 9;         /* #b45309 */
+    --c-warn-800: 252 211 77;       /* #fcd34d */
+    --c-warn-900: 253 230 138;      /* #fde68a */
+
+    --c-ink: 232 238 247;           /* #e8eef7 */
+    --c-ink-soft: 194 204 219;      /* #c2ccdb */
+    --c-ink-muted: 148 163 184;     /* #94a3b8 */
+
+    --c-paper: 11 18 32;            /* #0b1220 - the page */
+    --c-surface: 19 30 51;          /* #131e33 - cards and panels */
+
+    --shadow-card: 0 4px 16px -4px rgba(0, 0, 0, 0.55), 0 2px 4px -2px rgba(0, 0, 0, 0.45);
+    --shadow-lift: 0 12px 32px -8px rgba(0, 0, 0, 0.65);
+    --shadow-focus: 0 0 0 4px rgba(96, 165, 250, 0.55);
+
+    --background: 222 47% 7%;
+    --foreground: 214 32% 94%;
+    --card: 217 40% 13%;
+    --card-foreground: 214 32% 94%;
+    --popover: 217 40% 13%;
+    --popover-foreground: 214 32% 94%;
+    --primary: 213 94% 68%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 214 32% 94%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 217 33% 20%;
+    --accent-foreground: 214 32% 94%;
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 24%;
+    --input: 217 33% 24%;
+    --ring: 213 94% 68%;
+
+    color-scheme: dark;
+  }
+
+  /* High-contrast mode, toggled from Settings (also settable remotely by a
+     family member in Family Helper Mode). */
+  :root[data-contrast='high'] {
+    --font-scale: 1.08;
+    --brand: #0b2b64;
+  }
+
+  /* High contrast on a dark screen: the brand colour is the same dark navy,
+     which would vanish, so it is lightened instead. The font scale is the
+     same in both themes - it is a size preference, not a colour one. */
+  :root[data-contrast='high'][data-theme='dark'] {
+    --brand: #bfdbfe;
+  }
+
+  html {
+    /* `-webkit-text-size-adjust` comes from Tailwind's preflight; not repeated.
+       Without it iOS Safari inflates text in landscape and the large-type
+       layouts stop fitting. */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* The page colour is `paper`, and the default text colour is `ink`, not
+       white. The body used to be a blue box with white text on it, which
+       meant that any element which did not set its own colour inherited
+       WHITE - white text on a pale card, which is exactly the invisible
+       text this app had before. Now the default follows the theme. */
+    @apply bg-paper text-ink antialiased;
+    /* No transition here on purpose. Reduced motion is handled once, in the
+       prefers-reduced-motion block at the end of this file, which covers every
+       element. A transition on <body> never fired anyway - the body's own
+       colours never change. */
+  }
+
+  /* A single, very visible focus style everywhere. Keyboard users are a
+     first-class audience here, not an afterthought. */
+  :focus-visible {
+    outline: 4px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  /* Never let a long UPI id or a pasted SMS break the layout.
+     `break-word`, not `anywhere`: `anywhere` also feeds into intrinsic
+     min-content sizing, which let flex and grid children collapse to almost
+     nothing at some viewport widths. This still stops the overflow. */
+  p, h1, h2, h3, h4, li, span, div, td, th, label, button {
+    overflow-wrap: break-word;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* 16px minimum on inputs, otherwise iOS Safari zooms in on focus and the
+     elderly user loses their place on the page. */
+  input, select, textarea, button {
+    font-size: max(1rem, 1em);
+  }
+
+  button {
+    touch-action: manipulation; /* removes the 300ms double-tap delay */
+  }
+
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-[100] rounded-card bg-primary-800 px-6 py-4
+           text-lg font-bold text-white shadow-lift;
+  }
+}
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+@layer components {
+  /* The pre-React loading shell, styled here so it works with no JS. */
+  .boot {
+    @apply flex min-h-screen flex-col items-center justify-center gap-4 p-8 text-center;
+  }
+  .boot__logo {
+    @apply text-4xl font-extrabold tracking-tight text-primary-800;
+  }
+  .boot__msg {
+    @apply text-lg text-ink-soft;
+  }
+
+  /* --- Buttons: min 64px tall, always. ---------------------------------- */
+  .btn {
+    @apply inline-flex min-h-touch select-none items-center justify-center gap-3 rounded-card
+           px-6 py-4 text-center font-bold shadow-card
+           transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-primary-700 text-white hover:bg-primary-800;
+  }
+  .btn-secondary {
+    @apply btn border-2 border-primary-300 bg-surface text-primary-800 hover:bg-primary-50;
+  }
+  .btn-ok {
+    @apply btn bg-calm-700 text-white hover:bg-calm-800;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink-soft hover:bg-surface;
+  }
+  /* Red is ONLY ever used for fraud warnings, so it keeps a single meaning. */
+  .btn-danger {
+    @apply btn bg-danger-700 text-white hover:bg-danger-800;
+  }
+
+  /* --- Cards ------------------------------------------------------------- */
+  .card {
+    @apply rounded-card bg-surface p-5 shadow-card sm:p-6;
+  }
+  .card-title {
+    @apply text-xl font-extrabold text-ink sm:text-2xl;
+  }
+
+  /* --- Speaker button ---------------------------------------------------- */
+  .speaker-btn {
+    @apply inline-flex h-touch w-touch items-center justify-center rounded-full
+           border-4 border-primary-600 bg-surface text-primary-800 shadow-card
+           transition active:scale-95;
+  }
+  .speaker-btn--speaking {
+    @apply bg-primary-700 text-white;
+  }
+
+  /* --- Text fields ------------------------------------------------------- */
+  .field {
+    @apply min-h-touch w-full rounded-card border-4 border-primary-200 bg-surface px-5 py-4
+           text-lg font-semibold text-ink placeholder:font-normal placeholder:text-ink-muted
+           focus:border-primary-600;
+  }
+
+  /* Skeleton loading block with a gentle shimmer. */
+  .skeleton {
+    @apply relative overflow-hidden rounded-card bg-primary-100;
+  }
+  .skeleton::after {
+    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent
+           via-white/70 to-transparent;
+    content: '';
+    animation: shimmer 1.6s infinite;
+  }
+
+  /* Scroll container for text that must be scrollable rather than clipped. */
+  .scroll-area {
+    @apply max-h-56 overflow-y-auto rounded-card border-2 border-primary-100 bg-primary-50 p-4;
+  }
+}
+
+@layer utilities {
+  /* Underline for links inside spoken/help text. */
+  .link {
+    @apply font-bold text-primary-800 underline decoration-4 underline-offset-4;
+  }
+  /* Tabular numbers for money, so columns of amounts line up. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Reduced motion: kill the decorative loops (speech rings, shimmer) but keep
+    opacity changes so state changes are still perceivable. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   Glass headline hero
+   ==========================================================================
+   The component (components/ui/glass-headline-hero.tsx) ships its own
+   stylesheet in a <style> tag, and it is used exactly as it was written.
+   These are the app's adjustments on top of it.
+
+   They are deliberately NOT inside a Tailwind @layer. Unlayered rules beat
+   layered ones, and the component's stylesheet is unlayered, so anything in
+   @layer components would lose to it no matter how specific it was.
+
+   Why any adjustment is needed at all: the hero was written for a
+   full-screen landing page. Its type scale runs to 12.5rem and it carries
+   72px of padding a side. In the middle of an app, on a phone, that is a
+   banner tall enough to push the four big buttons - the entire point of
+   VoicePay - off the screen. */
+.ghr-home.ghr-root {
+  /* A column flex box with the content centred in it, so the hero can be
+     sized by its own content (Home.jsx passes height="auto") and still
+     centre the text when the content is shorter than the minimum height. */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: clamp(320px, 42svh, 440px);
+}
+
+.ghr-home .ghr-content {
+  width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Bring the component onto VoicePay's accessibility rules.
+
+   The README's contract is that every interactive target is at least
+   64x64px, and that no control opts out of the user's text-size preference.
+   The hero was written for a marketing page, where 48px buttons and a fixed
+   15px label are right; here they are two broken promises.
+   -------------------------------------------------------------------------- */
+.ghr-home .ghr-btn {
+  min-width: 64px;
+  min-height: 64px;
+  /* The same multiplier every other control in the app uses. Left at a fixed
+     15px, the hero is the one place whose text does NOT grow when someone
+     picks "Very large" - which reads as a bug to the person who picked it. */
+  font-size: calc(1rem * var(--font-scale, 1));
+  padding: 0 28px;
+}
+
+/* A clearer boundary between the two actions for anyone with low vision:
+   the secondary button's 7% wash is nearly invisible against the field. */
+.ghr-home .ghr-secondary {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* The "voice is playing" indicator, floated over the dark banner. The bars
+   are white here: the app's default teal disappears into the colour field. */
+.ghr-home-wave {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+
+.ghr-home-wave > span {
+  background-color: #ffffff;
+}
+
+/* Phones: the hero's own type and padding are sized for a wide screen. */
+@media (max-width: 640px) {
+  .ghr-home .ghr-content {
+    padding: 32px 20px;
+    gap: 18px;
+  }
+
+  .ghr-home .ghr-title {
+    font-size: clamp(2.5rem, 13cqw, 4rem);
+  }
+
+  .ghr-home .ghr-desc {
+    font-size: 1rem;
+  }
+}

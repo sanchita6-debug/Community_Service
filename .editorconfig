@@ -1,0 +1,21 @@
+# Makes indentation, encoding and line endings consistent no matter which editor
+# is opened. These were the conventions already used throughout the repo, they
+# just were not written down, so nothing stopped them drifting.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Markdown uses two trailing spaces for a hard line break.
+[*.md]
+trim_trailing_whitespace = false
+
+# Generated Tailwind output - not ours to format.
+[client/dist/**]
+insert_final_newline = false
+trim_trailing_whitespace = false

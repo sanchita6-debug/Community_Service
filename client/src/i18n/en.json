@@ -1,0 +1,611 @@
+{
+  "app": {
+    "name": "VoicePay",
+    "tagline": "Easy UPI for everyone",
+    "demoNotice": "Practice app. No real money moves here.",
+    "offlineNotice": "You are offline. Some features need internet."
+  },
+  "nav": {
+    "home": "Home",
+    "send": "Send money",
+    "explain": "Check a transaction",
+    "safety": "Is this safe?",
+    "learn": "Learn",
+    "history": "History",
+    "family": "Family helper",
+    "settings": "Settings",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to main content",
+    "back": "Go back"
+  },
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "done": "Done",
+    "cancel": "Cancel",
+    "close": "Close",
+    "retry": "Try again",
+    "yes": "Yes",
+    "no": "No",
+    "loading": "Please wait…",
+    "error": "Something went wrong",
+    "empty": "Nothing to show yet",
+    "speak": "Read this aloud",
+    "stopSpeaking": "Stop reading",
+    "listen": "Tap to speak",
+    "stopListening": "Tap to stop",
+    "listening": "Listening…",
+    "help": "Help",
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "of": "of",
+    "step": "Step",
+    "optional": "optional",
+    "required": "needed",
+    "copy": "Copy",
+    "copied": "Copied",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "remove": "Remove",
+    "add": "Add",
+    "example": "Example",
+    "tapToHear": "Tap the speaker to hear it",
+    "language": "Language",
+    "privacyNote": "We never ask for your OTP, PIN, or password. We never store your money details."
+  },
+  "greetings": {
+    "hello": "Hello"
+  },
+  "home": {
+    "greeting": "Namaste! How can I help you today?",
+    "heroGreeting": "Namaste",
+    "subtitle": "Choose any big button. I will read it to you.",
+    "greetMorning": "Good morning",
+    "greetAfternoon": "Good afternoon",
+    "greetEvening": "Good evening",
+    "sendTitle": "Send money",
+    "sendSub": "Step by step, with help at every step",
+    "explainTitle": "Check a transaction",
+    "explainSub": "I will explain the bank's message in simple words",
+    "safetyTitle": "Is this safe?",
+    "safetySub": "Check if a message is a fraud or not",
+    "learnTitle": "Learn",
+    "learnSub": "Short lessons and practice games",
+    "familyTitle": "Family helper",
+    "familySub": "A relative can set my preferences",
+    "settingsTitle": "My settings",
+    "settingsSub": "Language, text size, and voice",
+    "trumpTitle": "Remember",
+    "trumpBody": "No bank will ever ask for your OTP. If someone asks, it is a fraud."
+  },
+  "safetyBanner": {
+    "text": "We never ask for your OTP.",
+    "expand": "Why we say this",
+    "detail": "Your OTP is like a key to your money. A real bank already knows everything it needs. Only a thief needs you to read the OTP out loud."
+  },
+  "send": {
+    "title": "Send money",
+    "stepOf": "Step {current} of {total}",
+    "steps": [
+      "Open your payment app",
+      "Choose who to pay",
+      "Enter the amount",
+      "Check everything",
+      "Finished"
+    ],
+    "payeeLabel": "Who are you paying?",
+    "payeePlaceholder": "For example: Ramesh",
+    "payeeHint": "Type the name, or tap the microphone and say it.",
+    "payeeHelp": "The name of the person, for example Ramesh or Sita.",
+    "amountLabel": "How much money?",
+    "amountPlaceholder": "For example: 500",
+    "amountHint": "Say the number out loud, like \"two hundred fifty\".",
+    "amountHelp": "Only a number. We will say it back to you to check.",
+    "confirmPayeeTitle": "Is this the right person?",
+    "confirmPayeeHelp": "Please check the name carefully. If the name is wrong, the money may go to a stranger.",
+    "confirmPayeeYes": "Yes, this is right",
+    "confirmPayeeNo": "No, go back",
+    "reviewTitle": "Please check before you go",
+    "reviewPayee": "Paying",
+    "reviewAmount": "Amount",
+    "reviewNameWarning": "This person is not in your trusted list. Check the name twice.",
+    "trustedLabel": "In your trusted list",
+    "notTrustedLabel": "Not in your trusted list",
+    "trustedList": "Trusted people",
+    "notFound": "No saved person matches that name. Type the name carefully.",
+    "doneTitle": "All finished",
+    "doneBanner": "DEMO – no real money moved",
+    "doneBody": "In a real payment app, the money would now be on its way. Here in VoicePay we only practised, so nothing was charged and nothing left your account.",
+    "doneStepsTitle": "What you did",
+    "practiseAgain": "Practise again",
+    "goHome": "Go to home",
+    "invalidPayee": "Please enter a name with at least 2 letters.",
+    "invalidAmount": "Please say or type a number, like 500.",
+    "amountTooBig": "That amount looks very big. Please say it again.",
+    "amountMax": "For this practice, please use less than 1,00,000.",
+    "heard": "I heard",
+    "didNotCatch": "I did not catch that. Tap the microphone and try again, or type it.",
+    "uploading": "Almost done…"
+  },
+  "explain": {
+    "title": "Check a transaction",
+    "subtitle": "Copy the message from your banking app and paste it here. I will explain it in simple words.",
+    "inputLabel": "Paste the bank message",
+    "inputPlaceholder": "Paste the message here…",
+    "sampleTitle": "Or try a sample message",
+    "sampleHint": "These are practice messages, not real ones.",
+    "explainButton": "Explain this message",
+    "clear": "Clear",
+    "resultTitle": "What this message says",
+    "speakResult": "Read the explanation",
+    "missingTitle": "I could not find",
+    "missingHint": "That is normal. Bank messages differ from bank to bank.",
+    "missingLabels": {
+      "amount": "the amount",
+      "counterparty": "who it was to or from",
+      "when": "the date",
+      "reference": "the reference number",
+      "method": "the payment method",
+      "bank": "the bank",
+      "status": "whether it worked"
+    },
+    "safeTitle": "Things that look normal",
+    "concernTitle": "Things to be careful about",
+    "howTitle": "How I read this message",
+    "compareTitle": "Compare with your app",
+    "compareBody": "Open your banking app and look for this same amount and reference number. If the app shows it, the message is real. If the app does not show it, do not act on the message.",
+    "error": {
+      "tooShort": "That message is too short. Please paste the whole message.",
+      "tooLong": "That message is too long. Please paste only the transaction message.",
+      "internal": "I could not read that message. Please try again."
+    }
+  },
+  "samples": {
+    "debitSuccess": "Payment sent (normal)",
+    "creditSalary": "Money received (normal)",
+    "failedTxn": "Payment failed",
+    "otpScam": "Refund scam",
+    "kycScam": "Fake bank alert"
+  },
+  "summary": {
+    "debit": "{amount} was sent to {who} {when}.",
+    "credit": "{amount} came in from {who} {when}.",
+    "debitUnknown": "{amount} was sent out of your account {when}.",
+    "creditUnknown": "{amount} came into your account {when}.",
+    "amountOnly": "This message talks about {amount} {when}.",
+    "unknown": "I could not read this message clearly."
+  },
+  "when": {
+    "today": "today",
+    "yesterday": "yesterday",
+    "justNow": "just now",
+    "onDate": "on {date}"
+  },
+  "facts": {
+    "amount": "The amount is {amount}.",
+    "wentOut": "Money went out of your account: {amount} to {who}.",
+    "cameIn": "Money came into your account: {amount} from {who}.",
+    "person": "The other person is {who}.",
+    "when": "This happened {when}.",
+    "reference": "The reference number is {ref}.",
+    "method": "It was paid using {method}.",
+    "bank": "The bank is {bank}.",
+    "status": {
+      "success": "The payment worked.",
+      "failed": "The payment failed. The money did not go.",
+      "pending": "The payment is still going through.",
+      "unknown": "The message does not say if it worked."
+    }
+  },
+  "safety": {
+    "title": "Is this safe?",
+    "subtitle": "Type what the message says, paste it, or take a photo of it. I will tell you to be careful or not.",
+    "inputLabel": "Type the message",
+    "inputPlaceholder": "Type or paste the message here…",
+    "checkButton": "Check this message",
+    "photoButton": "Take a photo",
+    "photoHint": "I read the words in the picture. I never save the picture.",
+    "ocrWorking": "Reading the picture… this can take a moment.",
+    "ocrFailed": "I could not read that picture. Please type the message instead.",
+    "ocrNoText": "I could not find any words in that picture.",
+    "clear": "Clear",
+    "verdictLabel": "My answer",
+    "resultTitle": "Here is my answer",
+    "reasonsTitle": "Why I said this",
+    "actionsTitle": "What you should do now",
+    "signalsTitle": "Good signs in this message",
+    "noSignals": "I did not find the things that make a normal bank message.",
+    "rulesTitle": "How I decide",
+    "rulesSubtitle": "I look for the words below. You can read every rule.",
+    "howTitle": "How I read this message",
+    "weightLabel": "How strong a sign this is",
+    "phrasesFound": "Words I found",
+    "neverAskTitle": "Three things I will never ask you for",
+    "neverAskOtp": "Your OTP or one time password",
+    "neverAskPin": "Your UPI PIN or 4 digit password",
+    "neverAskCard": "Your full card number, expiry date, or CVV",
+    "speakVerdict": "Read the answer aloud",
+    "checkedIntro": "Here is the message I read:",
+    "scoreLabel": "How worried I am",
+    "error": {
+      "empty": "Please type, paste, or photograph a message first.",
+      "tooLong": "That message is too long to check.",
+      "internal": "I could not check that message. Please try again."
+    }
+  },
+  "verdict": {
+    "green": "This looks safe. Nothing worrying found.",
+    "yellow": "Be careful. Please check before you act.",
+    "red": "This looks like fraud. Do not act on it.",
+    "greenShort": "Looks safe",
+    "yellowShort": "Be careful",
+    "redShort": "Likely fraud",
+    "empty": "Type or paste a message and I will check it."
+  },
+  "rules": {
+    "otpRequest": {
+      "title": "Asking for your OTP",
+      "explanation": "No bank and no real company will ever ask you to read out a one time password. This is the oldest trick used to steal money.",
+      "safeAction": "Stop. Do not share the number. If someone asked, it is a fraudster."
+    },
+    "pinRequest": {
+      "title": "Asking for your UPI PIN",
+      "explanation": "Your UPI PIN is the secret that lets money leave your account. Real payment apps never ask for it, not even support staff.",
+      "safeAction": "Never read out your UPI PIN. If you already shared it, change it in your bank app right now."
+    },
+    "passwordRequest": {
+      "title": "Asking for your password",
+      "explanation": "Nobody legitimate needs your password. A stranger asking for it is trying to log in as you.",
+      "safeAction": "Do not type your password anywhere because of a phone call or message."
+    },
+    "screenShare": {
+      "title": "Asking you to share your screen",
+      "explanation": "If a stranger can watch your screen, they can see your PIN and your OTP. They can then take your money.",
+      "safeAction": "Hang up immediately. Never allow screen sharing with an unknown person."
+    },
+    "installApp": {
+      "title": "Telling you to install a new app",
+      "explanation": "Scammers send a link to a fake app that can read your messages and steal money. Only install apps from the official app store, by searching the name yourself.",
+      "safeAction": "Do not install anything from a link in a message. Close it and open your usual banking app yourself."
+    },
+    "accountBlocked": {
+      "title": "Threatening that your account will be blocked",
+      "explanation": "Real banks never block an account over a phone call or a message. This threat is used to make you act fast and panic.",
+      "safeAction": "Do nothing. Close the message. Call your bank yourself using the number on your card."
+    },
+    "clickLink": {
+      "title": "Asking you to click a link",
+      "explanation": "Links in messages can take you to a fake page that copies what you type. Real bank alerts rarely need you to click anything.",
+      "safeAction": "Do not click. If you think you must, open your banking app on your own instead."
+    },
+    "newNumber": {
+      "title": "Money must go to a new number",
+      "explanation": "A new phone number or bank account that has just appeared in your contacts is a common way to steal money. The number may belong to a stranger.",
+      "safeAction": "Do not send money yet. Call the person on their old number to confirm."
+    },
+    "lottery": {
+      "title": "Prize or lottery you never entered",
+      "explanation": "You cannot win a prize you never joined. These messages ask for your details or a small \"processing\" payment to steal money.",
+      "safeAction": "Delete it. Do not send any processing fee or your bank details."
+    },
+    "kycUpdate": {
+      "title": "Urgent KYC or update details message",
+      "explanation": "KYC updates are real, but they are done inside your banking app or branch. A message telling you to update through a link or phone number is fake.",
+      "safeAction": "Open your banking app yourself and check for a KYC notice. Do not use links or phone numbers from the message."
+    },
+    "refundFee": {
+      "title": "Refund that needs a fee first",
+      "explanation": "A real refund comes back on its own. Anyone asking you to pay a small amount first to release money is stealing from you.",
+      "safeAction": "Do not pay anything. Check your bank balance to see if the refund already arrived."
+    },
+    "personalData": {
+      "title": "Asking for card or bank details",
+      "explanation": "A genuine app already knows your card and bank details. A stranger asking for the full card number, expiry date, or CVV is a fraudster.",
+      "safeAction": "Stop. Do not read out card numbers, expiry dates, or CVV to anyone."
+    },
+    "remoteAccess": {
+      "title": "Asking you to stay on the phone and do things",
+      "explanation": "This is called technical support fraud. The caller walks you through your banking app and takes the money while talking to you.",
+      "safeAction": "Hang up. Call your bank on the number printed on your card or from its website."
+    },
+    "urgency": {
+      "title": "Rushing you with a deadline",
+      "explanation": "Scammers create panic so you act before you think. Urgency is a trick, not a real deadline.",
+      "safeAction": "Slow down. Close the message and come back to it later, or ask a family member."
+    },
+    "fakeOfficial": {
+      "title": "Pretending to be an official company",
+      "explanation": "Anyone can copy a bank logo and name. The message is fake if it arrived as a call, a text, or a WhatsApp message rather than from the app itself.",
+      "safeAction": "Open your banking app yourself. Do not trust the number that called you."
+    }
+  },
+  "signals": {
+    "upiRef": {
+      "label": "Has a UPI reference number"
+    },
+    "upiWord": {
+      "label": "Mentions UPI, the normal payment method"
+    },
+    "noRequest": {
+      "label": "Does not ask you for any secret"
+    },
+    "knownBank": {
+      "label": "Mentions a known Indian bank"
+    }
+  },
+  "learn": {
+    "title": "Learn",
+    "subtitle": "Short lessons and a small game to practise spotting fraud.",
+    "lessonsTitle": "Lessons",
+    "minutes": "{n} min",
+    "start": "Start lesson",
+    "doneBadge": "Finished",
+    "practiceTitle": "Practice game",
+    "practiceSub": "A message appears. Is it safe or fraud?",
+    "startPractice": "Start the game",
+    "scoreLabel": "You got {correct} out of {total} right",
+    "restart": "Play again",
+    "nextMessage": "Next message",
+    "yourAnswer": "You said",
+    "correctAnswer": "The right answer",
+    "answerSafe": "This is SAFE",
+    "answerFraud": "This is FRAUD",
+    "correct": "Well done! That was right.",
+    "wrong": "Not quite. Here is why.",
+    "allDone": "You have seen all the practice messages.",
+    "backToLearn": "Back to Learn",
+    "emptyProgress": "Finish a lesson to see your progress here.",
+    "lessons": {
+      "otp": {
+        "title": "Your OTP is your key. Never share it.",
+        "s1": "Your OTP is a short number the bank sends to your phone to prove it is really you.",
+        "s2": "That number is like a key to your money. Anyone who knows it can take money from your account.",
+        "s3": "So: never read out your OTP. Not to a bank, not to support staff, not to anyone.",
+        "quiz": {
+          "q": "A caller says: \"Sir, please read the OTP you just received, so I can fix your account.\" What do you do?",
+          "a": "Hang up. That is a fraud. Nobody needs your OTP.",
+          "b": "Read the OTP, because they said it is the bank.",
+          "c": "Read the OTP, but only the first three digits."
+        }
+      },
+      "verify": {
+        "title": "How to check a UPI payment really went through",
+        "s1": "After a payment, your bank sends a message with an amount and a 12 digit reference number.",
+        "s2": "The safest check is simple: open your banking app yourself and look for that same payment.",
+        "s3": "If the app shows the payment, it is real. If the app shows nothing, stop and tell someone you trust.",
+        "quiz": {
+          "q": "You get a message saying ₹5,000 was sent. What is the best check?",
+          "a": "Click the link in the message to confirm.",
+          "b": "Open your banking app yourself and see if the payment is listed there.",
+          "c": "Call the number in the message."
+        }
+      },
+      "calls": {
+        "title": "No real bank ever calls to ask for secrets",
+        "s1": "A real bank will never phone you to ask for your OTP, your PIN, or your password.",
+        "s2": "A real bank will also never ask you to install an app or to keep your camera on.",
+        "s3": "If someone calls, hang up. Then call your bank yourself on the number printed on your card.",
+        "quiz": {
+          "q": "Someone calls saying they are from the bank fraud department and asks you to stay on the line. What should you do?",
+          "a": "Stay on the line, they are the bank so it is fine.",
+          "b": "Give your account number so they can check.",
+          "c": "Hang up, then call your bank on the number on your card."
+        }
+      },
+      "newcontact": {
+        "title": "If a friend says \"my number changed\", be careful",
+        "s1": "Sometimes a thief takes over somebody else's phone and starts sending messages from it.",
+        "s2": "So a message from a familiar name can still be a stranger asking for money.",
+        "s3": "If money is involved, call your friend on their old number first. Always.",
+        "quiz": {
+          "q": "A familiar name messages you: \"My number changed, send today's rent to this new number.\" What do you do?",
+          "a": "Send the money, because you know the name.",
+          "b": "Do not send anything. Call the old number to confirm first.",
+          "c": "Send half the money now and half later."
+        }
+      }
+    },
+    "practice": {
+      "explain": {
+        "otp": "This message asks for your OTP. That is always a fraud. Hang up and do not share it.",
+        "normal": "This is a normal payment message. It has an amount and a 12 digit reference, and it asks for nothing.",
+        "install": "Telling you to install a new app from a link is a fraud. Close it and open your usual app yourself.",
+        "receipt": "A normal money-received message. It tells you the amount and who sent it, and asks for nothing.",
+        "newNumber": "A new number for money, plus a link to click. This is a very common fraud.",
+        "prize": "A prize you never entered, and a fee to pay first. This is a fraud.",
+        "pension": "A normal pension credit message. It says the amount and asks for nothing.",
+        "screenShare": "Asking you to share your screen and stay on the line is a fraud used to see your PIN."
+      }
+    }
+  },
+  "family": {
+    "title": "Family helper",
+    "subtitle": "For a relative helping the person who uses VoicePay.",
+    "signInTitle": "Sign in to help",
+    "signInSubtitle": "Only needed for family helper mode. You do not need an account to use the rest of the app.",
+    "email": "Email",
+    "password": "Password",
+    "passwordHelp": "At least 6 characters.",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "signOut": "Sign out",
+    "signedInAs": "Signed in as",
+    "needAccount": "I do not have an account",
+    "helpTitle": "Setting up for someone else",
+    "help1": "1. Sign in with your own email, so we can record who made these changes.",
+    "help2": "2. Set the language, text size, colours and voice they like.",
+    "help3": "3. Add the people they pay often, so VoicePay can warn them about new names.",
+    "targetTitle": "Who are you helping?",
+    "targetLabel": "Their email address",
+    "targetHelp": "Type the email address of the person whose phone this is. It is only a label, so you remember who you set up. It does not connect your phone to theirs.",
+    "targetPlaceholder": "For example: amma@example.com",
+    "targetSaved": "You are now helping",
+    "targetUnset": "Nobody named yet",
+    "saveTarget": "Save",
+    "localOnlyNote": "You are setting up this phone without an account. That is fine - everything still works.",
+    "prefsTitle": "Preferences you can set for them",
+    "languageTitle": "Language",
+    "fontTitle": "Text size",
+    "fontNormal": "Normal",
+    "fontLarge": "Large",
+    "fontXLarge": "Very large",
+    "contrastTitle": "Extra strong colours",
+    "contrastHelp": "Turn this on if they find the screen hard to see.",
+    "voiceTitle": "Voice",
+    "voiceHelp": "Turn on reading aloud, and choose how fast VoicePay speaks.",
+    "speakTitle": "Read every screen out loud",
+    "speakHelp": "VoicePay will read each screen as soon as it opens.",
+    "voiceSpeedTitle": "How fast VoicePay speaks",
+    "payeesTitle": "People they pay often",
+    "payeesHelp": "If they pay a name that is not on this list, VoicePay warns them to check twice.",
+    "payeeName": "Name",
+    "payeeVpa": "UPI id (optional)",
+    "addPayee": "Add this person",
+    "noPayees": "Nobody added yet.",
+    "removePayee": "Remove",
+    "applyTitle": "Saved on this phone",
+    "applyHelp": "These settings are saved on this phone straight away. Nothing is sent to anyone. When you are done, hand the phone to the person you are helping.",
+    "errors": {
+      "invalidEmail": "Please type a correct email address.",
+      "shortPassword": "Please use at least 6 characters.",
+      "authFailed": "That email or password did not work. Please try again.",
+      "emailInUse": "An account already exists with that email.",
+      "weakPassword": "Please choose a stronger password, at least 6 characters.",
+      "notFound": "We could not find an account for that email.",
+      "tooMany": "Too many tries. Please wait a minute and try again.",
+      "network": "We could not reach the server. Check your internet connection.",
+      "notConfirmed": "Please check your email and confirm your address first, then sign in."
+    }
+  },
+  "settings": {
+    "title": "My settings",
+    "subtitle": "You can change these yourself. A relative can also change them for you.",
+    "languageTitle": "Language",
+    "languageHelp": "Everything will be shown and read in this language.",
+    "textTitle": "Text size",
+    "textHelp": "Make the letters bigger if they feel small.",
+    "voiceTitle": "Voice",
+    "voiceHelp": "I will read things aloud. You can make my voice slower.",
+    "speakEverything": "Read out every screen by itself",
+    "speakEverythingHelp": "Turn on if you would like me to start reading each screen as soon as it opens.",
+    "rateLabel": "How fast I speak",
+    "rateSlow": "Slow",
+    "rateNormal": "Normal",
+    "rateFast": "Fast",
+    "testVoice": "Hear my voice",
+    "testVoicePhrase": "This is my voice. I will read everything for you.",
+    "contrastTitle": "Extra strong colours",
+    "contrastHelp": "Turn on if the screen feels hard to see.",
+    "themeTitle": "Light or dark screen",
+    "themeHelp": "Choose the screen that is easier to see. Dark is easier at night.",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSwitchToDark": "Switch to the dark screen",
+    "themeSwitchToLight": "Switch to the light screen",
+    "dataTitle": "My data",
+    "dataHelp": "VoicePay stores only your language, text size, and the names of people you pay. It never stores OTPs, PINs, passwords, or card numbers.",
+    "deleteTitle": "Delete my data",
+    "deleteBody": "This removes your settings, your lesson progress, and your history from this phone and from the saved copy. It cannot be undone.",
+    "deleteButton": "Delete everything",
+    "deleteConfirm": "Yes, delete everything",
+    "deleteDone": "Your data has been deleted.",
+    "savedToCloud": "Saved on your account",
+    "savedLocally": "Saved on this phone (not signed in)",
+    "offlineSaved": "Saved on this phone. It will sync when you are online.",
+    "signInToSync": "Sign in to save on your account",
+    "version": "Version"
+  },
+  "history": {
+    "title": "History",
+    "subtitle": "Everything you have checked and done, saved on this phone.",
+    "filterLabel": "Show me",
+    "filterAll": "Everything",
+    "kind": {
+      "safety": "Safety check",
+      "explain": "Transaction check",
+      "send": "Practice payment",
+      "lesson": "Lesson finished",
+      "practice": "Practice answer"
+    },
+    "verdict": {
+      "dangerous": "Looked dangerous",
+      "caution": "Be careful",
+      "safe": "Looked safe",
+      "explained": "Checked",
+      "completed": "Finished",
+      "correct": "Correct",
+      "incorrect": "Not quite",
+      "trusted": "Trusted person",
+      "notTrusted": "New name"
+    },
+    "detail": {
+      "warnings": "{n} warning sign(s) found",
+      "noWarnings": "No warning signs found",
+      "payee": "For {name}",
+      "payeeUnknown": "No name recorded",
+      "lessonDone": "Lesson saved",
+      "saidFraud": "You said: fraud",
+      "saidSafe": "You said: safe"
+    },
+    "band": {
+      "zero": "no amount",
+      "under500": "under ₹500",
+      "under5000": "under ₹5,000",
+      "under50000": "under ₹50,000",
+      "over50000": "over ₹50,000"
+    },
+    "when": {
+      "justNow": "Just now",
+      "minutesAgo": "{n} minute(s) ago",
+      "hoursAgo": "{n} hour(s) ago",
+      "yesterday": "Yesterday",
+      "daysAgo": "{n} day(s) ago",
+      "unknown": "Time not recorded"
+    },
+    "remove": "Remove this",
+    "clearAll": "Delete all of my history",
+    "clearKind": "Delete just these",
+    "deleteTitle": "Delete my history",
+    "deleteBody": "This erases these records from this phone and from the saved copy. It cannot be undone.",
+    "deleteConfirmAll": "Yes, delete everything",
+    "deleteConfirmKind": "Yes, delete my {kind} records",
+    "emptyTitle": "Nothing saved yet",
+    "emptyBody": "When you check a message, explain a transaction, or finish a lesson, it will appear here.",
+    "emptyFilteredTitle": "Nothing of this kind yet",
+    "emptyFilteredBody": "Try a different filter, or do one of these things and come back.",
+    "privacyNote": "This list shows what you checked and what the answer was. It does not keep the message you pasted, and never your OTP, PIN, or account number."
+  },
+  "tts": {
+    "unsupportedTitle": "I cannot speak",
+    "unsupportedBody": "This device does not have a reading voice installed. Everything is still written on the screen, so you can read it yourself. If you want a voice, ask a family member to install \"Google Text-to-Speech\" from the Play Store.",
+    "speakAnyway": "Try to speak"
+  },
+  "stt": {
+    "unsupportedTitle": "I cannot listen",
+    "unsupportedBody": "This device does not support voice input in this browser. You can type instead, and everything will work the same way.",
+    "noMicTitle": "I cannot hear you",
+    "noMicBody": "Your browser will ask for permission to use the microphone. Please tap \"Allow\". If you do not see the question, check the lock icon at the top of the page.",
+    "deniedTitle": "Microphone is switched off",
+    "deniedBody": "Your microphone permission was turned off. To turn it back on, tap the lock or settings icon at the top of the page, then allow the microphone.",
+    "noSpeechTitle": "I did not hear anything",
+    "noSpeechBody": "Please try again a little closer to the phone, and speak clearly.",
+    "networkTitle": "I cannot listen right now",
+    "networkBody": "Voice input needs internet. Please type the answer instead, and I will continue.",
+    "notSecureTitle": "Voice input needs a safe connection",
+    "notSecureBody": "Browsers only allow the microphone on a secure (https) or localhost page. Please type instead for now."
+  },
+  "languageNames": {
+    "en": "English",
+    "hi": "हिन्दी",
+    "ta": "தமிழ்",
+    "te": "తెలుగు",
+    "bn": "বাংলা"
+  },
+  "toast": {
+    "saved": "Saved",
+    "failed": "Could not save. Please try again.",
+    "offline": "You are offline. Saved on this phone only."
+  }
+}

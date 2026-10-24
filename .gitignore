@@ -1,3 +1,21 @@
-venv/
+node_modules/
+dist/
+build/
 .env
-__pycache__/
+.env.local
+*.log
+npm-debug.log*
+.DS_Store
+service-worker.js
+workbox-*.js
+dev-dist/
+coverage/
+.vscode/
+.idea/
+
+# SQLite database, WAL, and shared-memory files. A developer's local data must
+# never be committed, and the app recreates the schema on first run anyway.
+server/data/
+*.db
+*.db-wal
+*.db-shm

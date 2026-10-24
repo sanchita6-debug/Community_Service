@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+
+    // The app is JavaScript first: every existing file is .js/.jsx and stays
+    // that way. `allowJs` lets a TypeScript file import a JavaScript one, and
+    // `checkJs: false` means the JavaScript is never type-checked - so the
+    // checker only ever looks at the new .ts/.tsx files. Turning on
+    // `checkJs` would put ~60 untouched files in scope, which is a migration,
+    // not a config change.
+    "allowJs": true,
+    "checkJs": false,
+
+    // Strict mode is on for the TypeScript files. The one vendored component
+    // (components/ui/glass-headline-hero.tsx) is kept byte-identical to its
+    // source, so it is the one place where `strict` is relaxed - see the
+    // "Vendored components" note below and the tsconfig comment in
+    // components/ui/glass-headline-hero.tsx.
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shared/*": ["../shared/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
