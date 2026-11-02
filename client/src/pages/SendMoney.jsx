@@ -91,6 +91,23 @@ export default function SendMoney() {
   }, []);
 
   /**
+   * A loose name match against the saved list. Used to warn, never to block.
+   *
+   * Declared BEFORE finishReview on purpose: finishReview reads it in its
+   * dependency array, and reading a `const` before its declaration throws a
+   * ReferenceError at render time (the whole Send Money screen used to crash).
+   */
+  const trustedMatch = useMemo(() => {
+    const q = payee.trim().toLowerCase();
+    if (!q) return null;
+    return (
+      trustedPayees.find((p) => p.name.toLowerCase() === q) ||
+      trustedPayees.find((p) => p.name.toLowerCase().includes(q) || q.includes(p.name.toLowerCase())) ||
+      null
+    );
+  }, [payee, trustedPayees]);
+
+  /**
    * Finishing the review step is the moment the "payment" happens, so it is the
    * moment worth saving: the payee name the user typed, and an amount BAND
    * rather than the exact figure. Both are what the History screen shows.
@@ -106,17 +123,6 @@ export default function SendMoney() {
     );
     goNext();
   }, [record, payee, amount, trustedMatch, goNext]);
-
-  /** A loose name match against the saved list. Used to warn, never to block. */
-  const trustedMatch = useMemo(() => {
-    const q = payee.trim().toLowerCase();
-    if (!q) return null;
-    return (
-      trustedPayees.find((p) => p.name.toLowerCase() === q) ||
-      trustedPayees.find((p) => p.name.toLowerCase().includes(q) || q.includes(p.name.toLowerCase())) ||
-      null
-    );
-  }, [payee, trustedPayees]);
 
   const payeeValid = payee.trim().length >= 2;
 
@@ -243,8 +249,14 @@ export default function SendMoney() {
     // Try to interpret immediately so the confirmation row appears as they
     // speak. Failure is fine - they can keep typing or press the button.
     const parsed = parseSpokenNumber(normaliseSpokenNumber(value));
-    if (parsed !== null && parsed > 0) setAmount(parsed);
-    else setAmount(null);
+    if (parsed !== null && parsed > 0) {
+      setAmount(parsed);
+      // Next is disabled above the practice ceiling. Say why, instead of
+      // leaving someone tapping a dead button with no explanation.
+      setAmountError(parsed > MAX_AMOUNT ? t('send.amountMax') : null);
+    } else {
+      setAmount(null);
+    }
   }
 
   const amountStep = (
@@ -270,6 +282,7 @@ export default function SendMoney() {
           }
           setAmountInput(formatIndianNumber(parsed));
           setAmount(parsed);
+          setAmountError(parsed > MAX_AMOUNT ? t('send.amountMax') : null);
           setHeardHint(`${t('send.heard')}: ${text}`);
         }}
         label={t('send.amountLabel')}
