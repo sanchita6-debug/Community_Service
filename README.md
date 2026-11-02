@@ -69,7 +69,7 @@ binaries for Node 22 and 24 and declares `node >= 22`; on an older Node the
 install would try to compile from source and fail without a C++ toolchain.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
